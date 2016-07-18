@@ -17,33 +17,37 @@
  * under the License.
  */
 var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+  // Application Constructor
+  initialize: function() {
+    this.bindEvents();
+  },
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+  // Bind Event Listeners
+  bindEvents: function() {
+    document.addEventListener('deviceready', this.onDeviceReady, false);
+  },
 
-        console.log('Received Event: ' + id);
-    }
+  // deviceready Event Handler
+  onDeviceReady: function() {
+    console.log('Device is ready for work');
+    universalLinks.subscribe('openNewsListPage', app.onNewsListPageRequested);
+    universalLinks.subscribe('openNewsDetailedPage', app.onNewsDetailedPageRequested);
+  },
+
+  // openNewsListPage Event Handler
+  onNewsListPageRequested: function(eventData) {
+    console.log('Showing list of awesome news.');
+    $('#aa').show() ;
+
+    // do some work to show list of news
+  },
+
+  // openNewsDetailedPage Event Handler
+  onNewsDetailedPageRequested: function(eventData) {
+    console.log('Showing to user details page: ' + eventData.path);
+    $('#bb').show() ;
+    // do some work to show detailed page
+  }
 };
+
+app.initialize();

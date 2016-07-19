@@ -30,6 +30,7 @@ var app = {
   // deviceready Event Handler
   onDeviceReady: function() {
     console.log('Device is ready for work');
+    $('#logs').append('<p>Device is ready for work</p>') ;
     universalLinks.subscribe('openNewsListPage', app.onNewsListPageRequested);
     universalLinks.subscribe('openNewsDetailedPage', app.onNewsDetailedPageRequested);
   },
@@ -37,7 +38,7 @@ var app = {
   // openNewsListPage Event Handler
   onNewsListPageRequested: function(eventData) {
     console.log('Showing list of awesome news.');
-    $('#aa').show() ;
+    $('#logs').append('<p>zzzzzzz</p>') ;
 
     // do some work to show list of news
   },
@@ -45,7 +46,7 @@ var app = {
   // openNewsDetailedPage Event Handler
   onNewsDetailedPageRequested: function(eventData) {
     console.log('Showing to user details page: ' + eventData.path);
-    $('#bb').show() ;
+    $('#logs').append('<p>aaaaaaaaaa</p>') ;
     // do some work to show detailed page
   }
 };
@@ -62,11 +63,11 @@ $(document).ready(function() {
 
 
 function onOffline() {  
-    $('#status').text( 'offline' ) ;
+    $('#logs').append('<p>offline</p>') ;
 }
 
 function onOnline() {  
-    $('#status').text( 'online' ) ;
+    $('#logs').append('<p>online</p>') ;
 }
 
 

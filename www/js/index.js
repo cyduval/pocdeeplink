@@ -51,3 +51,25 @@ var app = {
 };
 
 app.initialize();
+
+
+
+$(document).ready(function() {
+
+  document.addEventListener("offline", onOffline, false);
+  document.addEventListener("online", onOnline, false);
+
+
+});
+
+
+function onOffline() {  
+    $('#status').text( 'offline' ) ;
+}
+
+function onOnline() {  
+    $('#status').text( 'online' ) ;
+}
+
+
+

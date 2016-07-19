@@ -12,10 +12,9 @@
 
 
     <universal-links>
-    <host name="devcyrille.videodesk.com" scheme="https">
-     <path url="/deeplink.html" event="openNewsListPage" />
-     <path url="/deeplinks.html" event="openNewsDetailedPage" />
-    </host>
+        <host name="devcyrille.videodesk.com" scheme="https">
+            <path url="/deeplink/" event="openNewsListPage" />
+        </host>
     </universal-links>
 
 
